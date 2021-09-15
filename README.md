@@ -8,6 +8,10 @@
 
 ## Tutorial 2
 
+### What I have learned today
+
+Saya mempelajari fungsi dari sebuah service untuk tidak meredundant code yang kita buat. Dan membuat code saya lebih terstrukur. Dan minggu ini juga mempelajari model yang merepresentasikan data pada database, tetapi minggu ini belum mempelajari bagaimana mengakases database.
+
 Pertanyaan 1: Cobalah untuk menambahkan sebuah Kebun dengan mengakses link berikut setelah menjalankan program:
 http://localhost:8080/kebun-safari/add?id=1&nama=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi
 Ketika saya klik link tersebut akan muncul error yaitu error whitelabel error page. Karena pada controller kita mereturn sebuah file html, tetapi pada folder resources/template file html tersebut masih belum tersedia maka muncul error tersebut. Ini adalah internal server error dengan kode status 500.
@@ -28,6 +32,10 @@ http://localhost:8080/kebun-safari/view/1
 Pertanyaan 5: Tambahkan 1 contoh Kebun Safari lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/ , apa yang akan ditampilkan? Sertakan juga bukti screenshot mu
 Akan menampilkan seluruh daftar kebun safari yang sudah diadd masing2 ID akan menampilkan Id, Nama Kebun Safari, Alamat, dan Nomor telepon
 Link screenshoot : https://drive.google.com/file/d/1K41uAMMVMJgkjXsD0qoP4Dqq_rehmnnq/view?usp=sharing
+
+### What I did not understand
+
+Autowired saya kurang memahami gmn cara kerja yang pastinya dan bedanya requestmapping dan getmapping (dan kapan kita menggunakannya)
 
 ## Tutorial 1
 
