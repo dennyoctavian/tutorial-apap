@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Daftar Kebun Safari</title>
+	</head>
+	<body>
+		<h2>Daftar Kebun Safari</h2>
+		<div th:each="kebunSafari : ${listKebunSafari}">
+			<h3 th:text="'ID Kebun Safari : ' + ${kebunSafari.idKebunSafari} "></h3>
+			<p th:text="'Nama Kebun Safari : ' + ${kebunSafari.namaKebunSafari} "></p>
+			<p th:text="'Alamat : ' + ${kebunSafari.alamat} "></p>
+			<p th:text="'Nomor Telepon : ' + ${kebunSafari.noTelepon} "></p>
+		</div>
+	</body>
+</html>

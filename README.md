@@ -6,6 +6,29 @@
 
 ---
 
+## Tutorial 2
+
+Pertanyaan 1: Cobalah untuk menambahkan sebuah Kebun dengan mengakses link berikut setelah menjalankan program:
+http://localhost:8080/kebun-safari/add?id=1&nama=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi
+Ketika saya klik link tersebut akan muncul error yaitu error whitelabel error page. Karena pada controller kita mereturn sebuah file html, tetapi pada folder resources/template file html tersebut masih belum tersedia maka muncul error tersebut. Ini adalah internal server error dengan kode status 500.
+
+Pertanyaan 2: Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam konteks service dan controller yang telah kamu buat
+@Autowired ini baru diperkenalan pada spring 2.5 fitur ini yang merupakan implementasi dari konsep dependency injection. Fungsi dari fitur ini adalah menyelesaikan dan meinject berkolaborasi beans ke our bean.
+Cara kerja fitur ini adalah kita mengakses ke interface fitur ini yang akan meninject depedency otomatis dari autowiring ke service yang melakukan implementasi autowiring.
+source : https://www.baeldung.com/spring-autowire
+
+Pertanyaan 3: Cobalah untuk menambahkan sebuah Kebun dengan mengakses link berikut:
+http://localhost:8080/kebun-safari/add?id=1&nama=Papa%20APAP&alamat=Maung%20Fasilkom Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+Akan terjadi error karena ada data yang required yaitu noTelepon yang tidak dimasukkan kedalam url tersebut. Kecuali pada controller request paramnya requirednya false maka link tersebut tidak error.
+
+Pertanyaan 4: Jika Papa APAP ingin melihat Kebun Safari dengan nama Papa APAP, link apa yang harus diakses?
+http://localhost:8080/kebun-safari?id=1
+http://localhost:8080/kebun-safari/view/1
+
+Pertanyaan 5: Tambahkan 1 contoh Kebun Safari lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/ , apa yang akan ditampilkan? Sertakan juga bukti screenshot mu
+Akan menampilkan seluruh daftar kebun safari yang sudah diadd masing2 ID akan menampilkan Id, Nama Kebun Safari, Alamat, dan Nomor telepon
+Link screenshoot : https://drive.google.com/file/d/1K41uAMMVMJgkjXsD0qoP4Dqq_rehmnnq/view?usp=sharing
+
 ## Tutorial 1
 
 ### What I have learned today
