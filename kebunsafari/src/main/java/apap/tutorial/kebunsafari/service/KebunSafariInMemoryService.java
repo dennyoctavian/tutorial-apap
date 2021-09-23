@@ -15,6 +15,7 @@ public class KebunSafariInMemoryService implements KebunSafariService {
 
     @Override 
     public void addKebunSafari(KebunSafariModel kebunSafari) {
+        kebunSafari.setAlamat("-");
         listKebunSafari.add(kebunSafari);
     }
 
