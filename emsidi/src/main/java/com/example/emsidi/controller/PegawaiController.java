@@ -28,7 +28,14 @@ public class PegawaiController {
     public String addPegawaiForm(@PathVariable Long noCabang, Model model) {
         PegawaiModel pegawai = new PegawaiModel();
         CabangModel cabang = cabangService.getCabangByNoCabang(noCabang);
+        List<PegawaiModel> listPegawai = cabang.getListPegawai();
+        System.out.println(listPegawai.size());
+        if (listPegawai.size() >= 3){
+            return "pegawai-gagal";
+        }
         pegawai.setCabang(cabang);
+        //implement disini
+        
         model.addAttribute("noCabang", noCabang);
         model.addAttribute("pegawai", pegawai);
         return "form-add-pegawai";
