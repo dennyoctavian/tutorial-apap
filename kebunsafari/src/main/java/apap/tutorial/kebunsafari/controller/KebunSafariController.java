@@ -31,22 +31,22 @@ public class KebunSafariController {
         return "detail-kebun-safari";
     }
 
-    @RequestMapping("/kebun-safari/add")
-    public String addKebunSafari(
-        @RequestParam(value="id", required = true) String idKebunSafari,
-        @RequestParam(value="nama", required = true) String namaKebunSafari, 
-        @RequestParam(value="alamat", required = true) String alamat,
-        @RequestParam(value="noTelepon", required = true) String noTelepon,
-        Model model
-    ) {
-        KebunSafariModel kebunSafari = new KebunSafariModel(idKebunSafari, namaKebunSafari, alamat, noTelepon);
+    // @RequestMapping("/kebun-safari/add")
+    // public String addKebunSafari(
+    //     @RequestParam(value="id", required = true) String idKebunSafari,
+    //     @RequestParam(value="nama", required = true) String namaKebunSafari, 
+    //     @RequestParam(value="alamat", required = true) String alamat,
+    //     @RequestParam(value="noTelepon", required = true) String noTelepon,
+    //     Model model
+    // ) {
+    //     KebunSafariModel kebunSafari = new KebunSafariModel(idKebunSafari, namaKebunSafari, alamat, noTelepon);
 
-        kebunSafariService.addKebunSafari(kebunSafari);
+    //     kebunSafariService.addKebunSafari(kebunSafari);
 
-        model.addAttribute("kebunSafari", kebunSafari);
+    //     model.addAttribute("kebunSafari", kebunSafari);
 
-        return "add-kebun-safari";
-    }
+    //     return "add-kebun-safari";
+    // }
 
     @GetMapping(value = "/kebun-safari/view/{id}")
     public String getKebunSafari(
@@ -70,8 +70,28 @@ public class KebunSafariController {
     public String deleteObjectById(@PathVariable(value = "id") String id, Model model) {
         KebunSafariModel kebunSafari = kebunSafariService.getKebunSafariByIdKebunSafari(id);
         List<KebunSafariModel> listKebunSafari = kebunSafariService.getKebunSafariList();
+        if (listKebunSafari != null) {
+            return "delete-gagal";
+        }
         listKebunSafari.remove(kebunSafari);
         return "delete-object";
+    }
+
+    @RequestMapping("/kebun-safari/add")
+    public String addKebunSafariNoAlamat(
+        @RequestParam(value="id", required = true) String idKebunSafari,
+        @RequestParam(value="nama", required = true) String namaKebunSafari, 
+        @RequestParam(value="alamat", required = false) String alamat,
+        @RequestParam(value="noTelepon", required = true) String noTelepon,
+        Model model
+    ) {
+        KebunSafariModel kebunSafari = new KebunSafariModel(idKebunSafari, namaKebunSafari, alamat, noTelepon);
+
+        kebunSafariService.addKebunSafari(kebunSafari);
+
+        model.addAttribute("kebunSafari", kebunSafari);
+
+        return "add-kebun-safari";
     }
 
 

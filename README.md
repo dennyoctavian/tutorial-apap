@@ -6,9 +6,50 @@
 
 ---
 
+## Tutorial 3
+
+### What I have learned today
+
+Pada kesempatan kali ini saya mempelajari sebuah framework yang dapat membuat sebuah model sekaligus membuat data pada database menjadi lebih mudah tanpa harus melakukan query pada MySQL. Pada minggu ini saya memepelajari satu layer baru yaitu layer repository yang berfungsi seluruh query yang berhubungan dengan database. Pada minggu ini saya memepelajari jika menggunakan vscode memerlukan extension lombok sebelum menggunakannya pada code.
+
+1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model
+   (@AllArgsConstructor, @NoArgsConstructor, @Setter, @Getter, @Entity, @Table)
+   @AllArgsConstructor membuat constructor secara otomatis dengan satu parameter untuk setiap class yang dibuat
+   @NoArgsConstructor membuat constructor secara otomatis yang tanpa parameter
+   @Setter membuat seluruh setter yang dibutuhkan oleh model tersebut
+   @Getter membuat seluruh getter yang dibutuhkan oleh model tersebut
+   @Entity mendeklarasikan sebuah class model sehingga dapat dilakukan mapping ke table pada database
+   @Table memberikan nama table pada JPA menggunakan @table(nama="nama_database") sehingga ketika dibuat database di MySQL sesuai nama yang diberikan pada @Table
+
+2. Pada class CabangDB, terdapat method findByNoCabang, apakah kegunaan dari method tersebut?
+   Fungsinya untuk mencari berdasarkann no cabang pada database karena kelas CabangDB berfungsi untuk melakukan seluruh logic yang berhubungan dengan database.
+
+3. Jelaskan perbedaan kegunaan dari anotasi @JoinTable dan @JoinColumn
+   @JoinTable adalah membuat sabuah table baru dari join beberapa table.
+   @JoinColum adalah membuat foreignkey dari suatu kolom ke kolom yang lainnya.
+
+4. Pada class PegawaiModel, digunakan anotasi @JoinColumn pada atribut cabang, apa
+   kegunaan dari name, referencedColumnName, dan nullable dalam anotasi tersebut? dan apa
+   perbedaan nullable dan penggunaan anotasi @NotNull
+   @JoinColumn(name ="noCabang", referencedColumnName = "noCabang", nullable = false)
+   name adalah membuat nama attribute pada kolom PegawaiModel yang akan menjadi sebuah foreignkey
+   referencedColumnName adalah attribute mana yang akan dituju atau mau di foreignkey ke mana
+   nullable itu khusus untuk diforeignkey sedangkan @NotNull untuk attribute biasa yang bukan attribute foreignkey
+
+5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
+   FetchType.LAZY : memberi tahu Hibernate untuk hanya mengambil entitas terkait dari database saat Anda menggunakan relasi. Pola ini adalah menunda menginisialisasi data selama mungkin. Umumnya digunakan untuk relasi one to one.
+   CascadeType.ALL : menyebarkan semua operasi (PERSIST, REMOVE, REFRESH, MERGE, DETACH) termasuk yang khusus dari Hibernate dari induk ke entitas anak. Umumnya digunakan untuk relasi one to many.
+   dan FetchType.EAGER : memberi tahu Hibernate untuk mendapatkan semua elemen relasi saat memilih entitas root. Pola ini adalah segera menginisialisasi data pada saat itu juga. Umumnya digunakan untuk relasi many to one.
+
+### What I did not understand
+
+Pada minggu ini saya mengalami kesalahan pemahaman soal. Seperti untuk cabang sedang buka saya memikirkan bahwa tombol terdisable ternyata permintaan soal berbeda. Saya tidak memahami layer repository karena hanya membuat interface karena tidak ada dilakukan implementasi. Saya membutuhkan informasi yg lebih untuk memahami layer repository pada springboot.
+
 ## Tutorial 2
 
 ### What I have learned today
+
+### What I did not understand
 
 Saya mempelajari fungsi dari sebuah service untuk tidak meredundant code yang kita buat. Dan membuat code saya lebih terstrukur. Dan minggu ini juga mempelajari model yang merepresentasikan data pada database, tetapi minggu ini belum mempelajari bagaimana mengakases database.
 
