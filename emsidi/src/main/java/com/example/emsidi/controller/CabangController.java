@@ -2,7 +2,9 @@ package com.example.emsidi.controller;
 
 import com.example.emsidi.model.CabangModel;
 import com.example.emsidi.model.PegawaiModel;
+import com.example.emsidi.model.MenuModel;
 import com.example.emsidi.service.CabangService;
+import com.example.emsidi.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -18,20 +20,44 @@ public class CabangController {
     @Autowired
     private CabangService cabangService;
 
+    @Qualifier("menuServiceImpl")
+    @Autowired
+    private MenuService menuService;
+
     @GetMapping("/cabang/add")
     public String addCabangForm(Model model){
         model.addAttribute("cabang", new CabangModel());
+        model.addAttribute("banyakRow", 3);
+        model.addAttribute("listMenu", menuService.getListMenu());
         return "form-add-cabang";
     }
 
+    //implementasi disini
     @PostMapping("/cabang/add")
     public String addCabangSubmit(
             @ModelAttribute CabangModel cabang,
+            @ModelAttribute MenuModel menu,
             Model model
     ) {
+        // System.out.println(menus);
         cabangService.addCabang(cabang);
+        // menuService.addMenu(menu);
         model.addAttribute("noCabang", cabang.getNoCabang());
         return "add-cabang";
+    }
+
+    @RequestMapping(value = "/tambah-row/{banyakRow}", method= RequestMethod.POST)
+    public String addRow(@ModelAttribute CabangModel cabang, Model model, @PathVariable Long banyakRow) {
+        model.addAttribute("cabang", cabang);
+        model.addAttribute("banyakRow", banyakRow+1);
+        model.addAttribute("listMenu", menuService.getListMenu());
+        return "form-add-cabang";
+    }
+
+    @PostMapping("/hapus-row")
+    public String removeRow(@ModelAttribute CabangModel cabang, Model model){
+        model.addAttribute("cabang", cabang);
+        return "form-add-cabang";
     }
 
     @GetMapping("/cabang/viewall")
@@ -59,8 +85,10 @@ public class CabangController {
         }
         List<PegawaiModel> listPegawai = cabang.getListPegawai();
         Boolean statusTutup = cabangService.cekStatusBuka(noCabang);
+        List<MenuModel> listMenu = cabang.getListMenu();
         model.addAttribute("cabang", cabang);
         model.addAttribute("listPegawai", listPegawai);
+        model.addAttribute("listMenu", listMenu);
         model.addAttribute("statusTutup", statusTutup);
         return "view-cabang";
     }

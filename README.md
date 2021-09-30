@@ -6,6 +6,26 @@
 
 ---
 
+## Tutorial 4
+
+### What I have learned today
+
+Pada minggu ini saya mempelajari engine template dari springboot yaitu thymeleaf. Kita dapat dengan mudah menggunakan conditional, looping, dan compile to html dengan mudah karena sudah disediakan. Minggu ini kita memepelajari syntax-syntax yang ada pada thymeleaf ini.
+
+1. Jelaskan perbedaan th:include dan th:replace!
+   th:include itu memasukan konten kedalam suatu html dari fragments yang telah kita buat.
+   th:replace itu menggantikan konten kedalam suatu html dengan fragments yang telah kita buat berarti kita akan menghapus konten yang ada di html utama digantikan oleh konten dari fragment ini.
+2. Jelaskan apa fungsi dari th:object!
+   th:object berfungsi sebagai submit pada sebuah form sehingga springboot mengetahui object yang disubmit di html. fungsi lainnya untuk menentukan object mana yang akan diisi dari suatu objek.
+3. Jelaskan perbedaan dari \* dan \$ pada saat penggunaan th:object! Kapan harus dipakai?
+
+- itu berfungsi untuk mengevaluasi sebuah attribute maupun variable dari sebuah th:object yang sudah di deklarasi sebelum code ini.
+  \$ itu untuk mengevaluasi keseluruhan atribute maupun variabel dari sebuah th:object
+
+### What I did not understand
+
+Saya kurang memahami soal no 4 bagaimana membuat beberapa input menu secara reload dan sampai sekarang saya masih mencoba mengimplementasi fitur tersebut.
+
 ## Tutorial 3
 
 ### What I have learned today

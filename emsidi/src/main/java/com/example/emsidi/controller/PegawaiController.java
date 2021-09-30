@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
+import java.time.LocalTime;
 
 @Controller
 public class PegawaiController {
@@ -93,6 +94,22 @@ public class PegawaiController {
         model.addAttribute("cabang", cabang);
         model.addAttribute("listPegawai", listPegawai);
         return "view-cabang";
+    }
+
+    @PostMapping("/pegawai/delete")
+    public String deletePegawaiSubmit(
+        @ModelAttribute CabangModel cabang,
+        Model model
+    ) {
+        LocalTime now = LocalTime.now();
+        if (now.isBefore(cabang.getWaktuBuka()) || now.isAfter(cabang.getWaktuTutup())){
+            for (PegawaiModel pegawai : cabang.getListPegawai()) {
+                pegawaiService.removePegawai(pegawai);
+            }
+            model.addAttribute("noCabang", cabang.getNoCabang());
+            return "delete-pegawai";
+        }
+        return "error-cannot-delete";
     }
 
     
