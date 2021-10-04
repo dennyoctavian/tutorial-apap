@@ -10,6 +10,8 @@
 		/>
 		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
 		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+		<object th:include="fragments/footer :: css" th:remove="tag"></object>
+		<object th:include="fragments/footer :: js" th:remove="tag"></object>
 	</head>
 	<body>
 		<nav th:replace="fragments/fragment :: navbar('Cabang')"></nav>
@@ -25,5 +27,6 @@
 				</div>
 			</div>
 		</div>
+		<footer th:replace="fragments/footer :: footer('Cabang')"></footer>
 	</body>
 </html>

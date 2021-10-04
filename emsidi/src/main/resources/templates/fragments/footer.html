@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Home</title>
+		<head th:fragment="css">
+			<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+		</head>
+	</head>
+	<head th:fragment="footer">
+		<script
+			src="https://code.jqquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFIBw8HfCJo="
+			crossorigin="anonymous"
+		></script>
+		<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+	</head>
+	<body>
+		<footer th:fragment="footer(page)">
+			<p>Author: Denny Octavian</p>
+			<p th:value="${page}" class="footer"></p>
+		</footer>
+	</body>
+</html>
