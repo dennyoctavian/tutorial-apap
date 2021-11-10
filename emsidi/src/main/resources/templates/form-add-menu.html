@@ -18,42 +18,36 @@
 			<div class="card m-4 p-4">
 				<div class="card-body">
 					<div class="justify-content-center">
-						<h2>Tambah Pegawai</h2>
+						<h2>Tambah Menu</h2>
 						<br />
-						<form
-							th:action="@{/pegawai/update/{idPegawai}(idPegawai=${pegawai.noPegawai})}"
-							th:object="${pegawai}"
-							method="POST"
-						>
-							<input type="hidden" th:field="*{cabang}" />
-
-							Nama Pegawai : <br />
+						<form th:action="@{/menu/add}" th:object="${menu}" method="POST">
+							Nama Menu : <br />
 							<input
 								required
 								class="form-control"
 								type="text"
-								th:value="${pegawai.namaPegawai}"
-								name="namaPegawai"
+								name="namaMenu"
 							/>
 							<br /><br />
 
-							Jenis Kelamin : <br />
-							<select name="jenisKelamin">
-								<option
-									th:value="${pegawai.jenisKelamin}"
-									th:text="${pegawai.jenisKelamin == 0} ?'Perempuan' : 'Laki-laki'"
-								></option>
-								<option value="0">Perempuan</option>
-								<option value="1">Laki-laki</option>
+							Deskripsi Menu : <br />
+							<input
+								required
+								class="form-control"
+								type="text"
+								name="deskripsiMenu"
+							/>
+							<br /><br />
+
+							Sedang Tersedia : <br />
+							<select name="isAvailable" class="form-control">
+								<option th:value="0" th:text="YA"></option>
+								<option th:value="1" th:text="TIDAK"></option>
 							</select>
 							<br /><br />
 
-							<button class="btn btn-primary" type="submit">Update</button>
-							<a
-								class="btn btn-primary"
-								th:href="@{/cabang/view(noCabang=${noCabang})}"
-								>Cancel</a
-							>
+							<button class="btn btn-primary" type="submit">Submit</button>
+							<a class="btn btn-primary" href="/">Home</a>
 						</form>
 					</div>
 				</div>
