@@ -84,28 +84,35 @@ public class PegawaiRestController {
 
     @GetMapping(value="/pegawai/umur/{noPegawai}")
     private HashMap<String, String> preksiUmurPegawai(@PathVariable("noPegawai") Long noPegawai) {
-        PegawaiModel pegawai = pegawaiRestService.getPegawaiByNoPegawai(noPegawai);
-        String nama = pegawai.getNamaPegawai();
-        LocalTime now = LocalTime.now();
-        Long noCabang = pegawai.getCabang().getNoCabang();
-        CabangModel cabang = cabangRestService.getCabangByNoCabang(noCabang);
-        HashMap<String, String> response2 = new HashMap<>();
-        if (now.isBefore(cabang.getWaktuBuka()) || now.isAfter(cabang.getWaktuTutup())) {
-            String[] arr = nama.split(" ");
-            String namaPrediksi = arr[0];
-            String uri = "https://api.agify.io?name="+namaPrediksi;
-            RestTemplate restTemplate = new RestTemplate();
-            String hasil = restTemplate.getForObject(uri, String.class);
-            System.out.println(hasil);
-            String[] object = hasil.split(",");
-            String[] age = object[1].split(":");
-            response2.put("noPegawai", Long.toString(pegawai.getNoPegawai()));
-            response2.put("namaPegawai", pegawai.getNamaPegawai());
-            response2.put("jenisKelamin", String.valueOf(pegawai.getJenisKelamin()));
-            response2.put("umur", age[1]);
-            return response2;
-        } else {
-            throw new UnsupportedOperationException();
+        try {
+            PegawaiModel pegawai = pegawaiRestService.getPegawaiByNoPegawai(noPegawai);
+            String nama = pegawai.getNamaPegawai();
+            LocalTime now = LocalTime.now();
+            Long noCabang = pegawai.getCabang().getNoCabang();
+            CabangModel cabang = cabangRestService.getCabangByNoCabang(noCabang);
+            HashMap<String, String> response2 = new HashMap<>();
+            if (now.isBefore(cabang.getWaktuBuka()) || now.isAfter(cabang.getWaktuTutup())) {
+                String[] arr = nama.split(" ");
+                String namaPrediksi = arr[0];
+                String uri = "https://api.agify.io?name="+namaPrediksi;
+                RestTemplate restTemplate = new RestTemplate();
+                String hasil = restTemplate.getForObject(uri, String.class);
+                System.out.println(hasil);
+                String[] object = hasil.split(",");
+                String[] age = object[1].split(":");
+                response2.put("noPegawai", Long.toString(pegawai.getNoPegawai()));
+                response2.put("namaPegawai", pegawai.getNamaPegawai());
+                response2.put("jenisKelamin", String.valueOf(pegawai.getJenisKelamin()));
+                response2.put("umur", age[1]);
+                return response2;
+            } else {
+                throw new UnsupportedOperationException();
+            }
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "ID Pegawai" + String.valueOf(noPegawai) + "Not Found."
+            );
         }
+        
     }
 }
