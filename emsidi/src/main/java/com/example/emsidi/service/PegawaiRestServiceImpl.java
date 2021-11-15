@@ -16,6 +16,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.ArrayList;
 
 @Service
 @Transactional
@@ -60,5 +61,18 @@ public class PegawaiRestServiceImpl implements PegawaiRestService {
         
         pegawaiDb.delete(pegawai);
         
+    }
+
+    @Override
+    public List<PegawaiModel> getPegawaiByHurufAwal(String horufAwal){
+       List<PegawaiModel> listPegawai = pegawaiDb.findAll();
+       List<PegawaiModel> listPegawaiByHuruf = new ArrayList<PegawaiModel>();
+       for (PegawaiModel model : listPegawai){
+           String namaPegawai = model.getNamaPegawai();
+           if (String.valueOf(namaPegawai.charAt(0)).equals(horufAwal)){
+                listPegawaiByHuruf.add(model);
+           }
+       }
+       return listPegawaiByHuruf;
     }
 }

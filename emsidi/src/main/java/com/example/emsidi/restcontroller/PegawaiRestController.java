@@ -115,4 +115,15 @@ public class PegawaiRestController {
         }
         
     }
+
+    @GetMapping(value="pegawai/nama/{hurufAwal}")
+    private List<PegawaiModel> retrievePegawaiByHuruf(@PathVariable("hurufAwal") String hurufAwal) {
+        try {
+            return pegawaiRestService.getPegawaiByHurufAwal(hurufAwal);
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "ID Pegawai" + hurufAwal + "Not Found."
+            );
+        }
+    }
 }
