@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -18,6 +19,7 @@ import java.io.Serializable;
 @Getter
 @Entity
 @Table(name="pegawai")
+@JsonIgnoreProperties(value = {"cabang"}, allowSetters = true)
 public class PegawaiModel implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -10,6 +10,37 @@
 
 ### What I have learned today
 
+Pada minggu ini saya mempelajari RestAPI dengan menggunakan springboot. Kita membuat sebuah response berupa json yang akan dikonsumsi oleh FE. Kita menguji API menggunakan alat bantu POSTMAN.
+
+1. Apa itu Postman? Apa kegunaannya?
+   Postman adalah salah satu aplikasi untuk mengecek API yang sudah kita buat itu sudah berjalan sesuai dengan yang diinginkan atau belum. Umumnya digunakan oleh BE untuk mengecek API yang sudah dibuat. Jika dari website resminya POSTMAN adalah Platform API untuk membangun dan menggunakan API. Kegunaan lainnya biasanya digunakan oleh BE untuk mendokumentasikan seluruh API yang sudah ada karena pada POSTMAN kita dapat menyimpan API yang sudah kita test secara terstruktur.
+
+2. Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty.
+   @JsonIgnoreProperties berfungsi untuk mengabaikan properti logis yang ditentukan dalam serialisasi dan deserialisasi JSON. Hal ini dijelaskan di tingkat kelas. Temukan cuplikan kode.
+   sumber: https://www.concretepage.com/jackson-api/jackson-jsonignore-jsonignoreproperties-and-jsonignoretype#JsonIgnore
+   @JsonProperty berfungsi untuk digunakan untuk memetakan nama properti dengan kunci JSON selama serialisasi dan deserialisasi.
+   sumber: https://dzone.com/articles/jackson-annotations-for-json-part-4-general
+
+3. Apa kegunaan atribut WebClient?
+   WebClient adalah antarmuka yang mewakili titik masuk utama untuk melakukan permintaan web atau klien web non-pemblokiran dan reaktif untuk melakukan permintaan HTTP. Dengan kegunaan menyediakan API gaya fungsional yang lancar. Kegunaan lainnya adalah menawarkan dukungan untuk operasi sinkron dan asinkron, sehingga cocok juga untuk aplikasi yang berjalan pada Servlet Stack.
+
+sumber : https://howtodoinjava.com/spring-webflux/webclient-get-post-example/ dan https://www.baeldung.com/spring-5-webclient
+
+4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?
+   ResponseEntity mewakili seluruh respons HTTP: kode status, header, dan isi. Akibatnya, kita dapat menggunakannya untuk mengonfigurasi respons HTTP sepenuhnya. Kegunaannya adalah karena initipe generik. Sehingga, kita dapat menggunakan tipe apa pun sebagai badan respons.
+
+BindingResult adalah antarmuka yang menentukan bagaimana objek yang menyimpan hasil validasi harus menyimpan dan mengambil hasil validasi (kesalahan, upaya untuk mengikat ke bidang yang tidak diizinkan, dll). BindingResult digunakan objek BindingResult sebagai argumen untuk metode validasi Validator di dalam Controller.
+
+sumber : https://stackoverflow.com/questions/10413886/what-is-the-use-of-bindingresult-interface-in-spring-mvc/36715053 dan https://www.baeldung.com/spring-response-entity
+
+### What I did not understand
+
+Saya kurang memahami soal no 2 untuk mengkonsumsi API external dan mencari jawaban dari 4 pertanyaan diatas.
+
+## Tutorial 4
+
+### What I have learned today
+
 Pada minggu ini saya mempelajari engine template dari springboot yaitu thymeleaf. Kita dapat dengan mudah menggunakan conditional, looping, dan compile to html dengan mudah karena sudah disediakan. Minggu ini kita memepelajari syntax-syntax yang ada pada thymeleaf ini.
 
 1. Jelaskan perbedaan th:include dan th:replace!
