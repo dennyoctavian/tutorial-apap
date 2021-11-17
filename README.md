@@ -6,7 +6,34 @@
 
 ---
 
-## Tutorial 4
+## Tutorial 6
+
+### What I have learned today
+
+Pada minggu ini saya mempelajari autentikasi dan autorisasi pada springboot, update password, dan mengecek kriteria password.
+
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode
+   yang telah anda buat) konsep tersebut diimplementasi?
+   Otentikasi adalah mengecek bahwa user yang memiliki id tertentu betul dia yang punya sedangkan Otorisasi adalah mengecek siapa saja yang dapat mengakases halaman tertentu.
+   Otentikasi terjadi ketika login, sedangkan Otorisasi pada bagian add user, hapus user, liat all user, add menu pada cabang, tambah, ubah, dan hapus cabang.
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya.
+   Itu adalah sebuah library untuk mengubah string password menjadi bentuk hasing. Cara kerjanya adalah semua string yg diterima akan diubah berdasarkan algoritma tertentu umumnya biasanya menggunakan kata kunci untuk melakukan hashing. Tujuannya supaya tidak ada seorang pun yang mengetahui password dari seorang user baik seorang admin.
+3. Apakah penyimpanan password sebaiknya menggunakan encryption atau hashing? Mengapa
+   demikian?
+   Karena password itu adalah hal yang sangat privasi karena untuk melakukan autentikasi kita perlu memasukan password. Karena jika password berbentuk string biasa apabila data bocor sangat mudah sekali untuk diretas apabila dilakukan hashing harus ada usaha tertentu untuk memecah sebuah kode hashing.
+4. Jelaskan secara singkat apa itu UUID beserta penggunaannya!
+   UUID (Universally Unique Identifier), juga dikenal sebagai GUID (Globally Unique Identifier) ​​mewakili nilai panjang 128-bit yang unik untuk semua tujuan praktis. Representasi standar UUID menggunakan digit hex (oktet). UUID terdiri dari digit hex (masing-masing 4 karakter) bersama dengan 4 simbol "-", yang membuat panjangnya sama dengan 36 karakter. UUID Nil adalah bentuk khusus dari UUID di mana semua bit disetel ke nol.
+   UID memiliki kegunaan untuk melakukan sebuah identifikasi secara unik beberapa objek atau entitas di Internet
+   sumber : https://www.baeldung.com/java-uuid
+
+5. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut?
+   Mempermudah semua segala proses Otentikasi dan Otorisasi karena sebenernya UserDetailsServiceImpl.java sebuah class yang sudah disiapkan oleh spring boot untuk melakukan itu semua. Dengan ada kelas itu mempermudah kita melakukan semua segala proses login logout dan otorisasi lebih mudah dan tidak perlu dilakukan dari 0.
+
+### What I did not understand
+
+Saya tidak memahami bagaimana mengimplementasi mengubah password.
+
+## Tutorial 5
 
 ### What I have learned today
 
