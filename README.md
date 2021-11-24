@@ -5,6 +5,62 @@
 - **<Denny Octavian>** - _<1906298834>_ - _<A>_
 
 ---
+## Tutorial 7
+
+### What I have learned today
+Pada hari ini saya mempelajari salah satu library javascript untuk mengelola bagian frontend yaitu menggunakan React Js. Kita mempelejari bagaimana membagi satu halaman html menjadi beberapa componet dan elemen. Kita juga mempelajari props dan state. Kita mempelajari javascript ES 6 yaitu let dan arrow function. Belajar bagimana melakukan routing pada react js.
+
+1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
+Screenshot no 1.
+   deleteItem = (item) => {
+        const newItems = [...this.state.cartItems];
+        const newItem = { ...item };
+        const targetInd = newItems.findIndex((it) => it.id === newItem.id);
+        newItem.inCart = false;
+        newItems.splice(targetInd, 1);
+        this.updateShopItem(newItem, false);
+        this.setState({ cartItems: newItems });
+        this.setState({balance: this.state.balance + newItem['price']});
+    }
+pada no 1, saya melihat algoritma bagimana untuk menambahkan setelah saya mempelajari saya mengcopy code mengupdate lalu setelah saya pelajari, saya memutuskan untuk mengubah newItems.splice(targetInd, 1);
+this.updateShopItem(newItem, false); yang berarti saya menghapus item yang ingin dihapus pada list dan mengubah value newItem menjadi false untuk nanti jumalah dikeranjang dapat berkurang.
+
+screenshot no 2
+this.setState({balance: this.state.balance - newItem['price']});
+
+pada no 2, saya menambahkan this.setState({balance: this.state.balance - newItem['price']}); yaitu dengan memanggil setState lalu mengupdate sebuah variabel balance dari balan-hargabarang.
+
+screenshot no 3
+         if (this.state.balance - newItem['price'] < 0){
+            alert("Balance not sufficent!");
+        }
+pada no 3, saya hanya menambahkan pada add barang ke keranjang dengan code 
+if (this.state.balance - newItem['price'] < 0){
+    alert("Balance not sufficent!");
+}
+
+dengan mengecek uang yg sekarang ada dikurangin harga barang itu kurang dari nol maka sudah tidak bisa memasukan barang lagi dan akan mengeluarkan sebuah peringatan.
+
+2. Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?
+state adalah sebuah data yang bersifat private pada sebuah component. State ini tidak dapat diakses oleh component lain, hanya dapat diakses oleh component milik dia sendiri.
+props adalah property yang mirip seperti atrribute pada tag HTML. pada functional component kita dapat menyimpulkan bahwa props itu adalah parameternya. Jika kita membuat sebuah class untuk mengaksesnya memerlukan this sedangkan untuk function biasa bisa langsung nama file.
+
+3. Menurut kamu, apakah sebaiknya kita menggunakan component (e.g. List, Item) dalam React? sebutkan alasannya.
+Kita sebaiknya menggunakan component alasannya untuk dapat diakses oleh halaman lain jadi apabila terdapat pengulangan dalam menampilkan pada html kita tidak perlu lagi melakukan coding ulang melainkan untuk memanggil komponen yang ingin kita tampilkan.
+
+4. Apa perbedaan class component dan functional component?
+functional component hanya dapat memakai props 
+sedangkan class component dapat memakai state dan props.
+
+5. Dalam react, apakah perbedaan component dan element?
+component adalah 
+elemen adalah bagian terkecil pada react yang menggambarkan sesuatu yang akan ditampilkan pada layar. Elemen adalah virtual dari DOM yang sangat terkenal karena kecepatannya. pada setting standar react memiliki 1 file index html yang isinya ada 
+<div id="root"></div>
+
+komponen adalah function seperti javascript yang memiliki input props dan mengembalikan react elemen. Dengan komponen kita dapat membuat UI yang independent, isolated, dan reusable. Sehingga mengurangi redudansi pada kode.
+
+### What I did not understand
+Syntax syantax react js asing bagi kami karena kita tidak memahami js yang cukup advanced.
 
 ## Tutorial 6
 
