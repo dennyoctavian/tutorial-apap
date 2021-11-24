@@ -41,6 +41,8 @@ if (this.state.balance - newItem['price'] < 0){
 
 dengan mengecek uang yg sekarang ada dikurangin harga barang itu kurang dari nol maka sudah tidak bisa memasukan barang lagi dan akan mengeluarkan sebuah peringatan.
 
+untuk screenshot asli dapat akses https://drive.google.com/drive/folders/1WD_a12HjWN_p9dvfTkPFU-BSU8-nGIpv?usp=sharing
+
 2. Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?
 state adalah sebuah data yang bersifat private pada sebuah component. State ini tidak dapat diakses oleh component lain, hanya dapat diakses oleh component milik dia sendiri.
 props adalah property yang mirip seperti atrribute pada tag HTML. pada functional component kita dapat menyimpulkan bahwa props itu adalah parameternya. Jika kita membuat sebuah class untuk mengaksesnya memerlukan this sedangkan untuk function biasa bisa langsung nama file.
