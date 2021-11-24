@@ -4,12 +4,6 @@
 		<meta charset="UTF-8" />
 		<title>Home</title>
 		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-		<script
-			src="https://code.jquery.com/jquery-3.4.1.min.js"
-			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFIBw8HfCJo="
-			crossorigin="anonymous"
-		></script>
-		<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
 		<script th:src="@{/js/bootstrap.min.js}"></script>
 	</head>
 
@@ -17,9 +11,14 @@
 		<nav th:replace="fragments/fragment :: navbar('Home')"></nav>
 		<div class="d-flex justify-content-center">
 			<div class="m-4">
+				<div class="d-flex justify-content-center">
+					<h2 th:text="'Hello' + ${#httpServletRequest.remoteUser}">
+						Login as
+					</h2>
+				</div>
 				<h2>Selamat datang di Emsidi</h2>
 				<div class="d-flex justify-content-center">
-					<a th:href="@{/cabang/viewall}" class="mx-2 btn btn-dark"
+					<a th:href="@{/cabang/viewall}" class="mx-2 btn btn-danger"
 						>Lihat semua cabang</a
 					>
 					<a th:href="@{/cabang/add}" class="mx-2 btn btn-outline-dark"
@@ -27,11 +26,24 @@
 					>
 				</div>
 				<div class="my-3 d-flex justify-content-center">
-					<a th:href="@{/menu/viewall}" class="mx-2 btn btn-dark"
+					<a th:href="@{/menu/viewall}" class="mx-2 btn btn-danger"
 						>Lihat semua menu</a
 					>
 					<a th:href="@{/menu/add}" class="mx-2 btn btn-outline-dark"
 						>Tambah menu</a
+					>
+				</div>
+				<div class="my-3 d-flex justify-content-center">
+					<a th:href="@{/user/add}" class="mx-2 btn btn-outline-warning"
+						>Tambah User Baru</a
+					>
+				</div>
+
+				<div class="my-3 d-flex justify-content-center">
+					<a
+						th:href="@{/user/update-password}"
+						class="mx-2 btn btn-outline-danger"
+						>Ubah Password</a
 					>
 				</div>
 			</div>
