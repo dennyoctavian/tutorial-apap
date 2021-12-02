@@ -5,6 +5,36 @@
 - **<Denny Octavian>** - _<1906298834>_ - _<A>_
 
 ---
+## Tutorial 8
+
+### What I have learned today
+Pada hari saya mempelajari react yang lebih dalam lagi yaitu menggunakan data dari api bukan data dummy seperti minggu kemarin. Pada minggu sebelumnya kita sudah mempelajari membuat api dengan mengirim response data json melalui xampp sekarang kita mengirim ke api melalui react js.
+
+1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian
+melakukan langkah - langkah tersebut?
+Latihan no 1 kemarin diberitahu oleh asisten dosen untuk tidak melakukan implementasi karena ada kesalahan soal. Karena set state dibuat kosong atau di set state ulang kembali.
+
+2.Jelaskan fungsi dari async dan await!
+async maksudnya function tersebut dapat berjalan secara asrinkonus.
+await itu untuk melakukan hit api dan api akan menggambil dan mengolah data pada html.
+
+3. Masukkan jawaban dari Screenshot yang diperintahkan di halaman 9 pada Component Lifecycle
+pada pertanyaan ini.
+https://drive.google.com/drive/folders/1ZNjqquVeEnv1ogdUQoi4ohoFBTOVnKxD?usp=sharing
+
+4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate,
+componentDidUpdate, componentWillReceiveProps, componentWillUnmount.
+Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja
+yang biasanya menggunakan lifecycle method tersebut”.
+componentDidMount : dipanggil segera setelah komponen dipasang. Inisialisasi yang membutuhkan node DOM harus dilakukan di sini. Digunakan ketika Clock output dimasukkan DOM.
+shouldComponentUpdate : beri tahu React jika output komponen tidak terpengaruh oleh perubahan state atau props saat ini.
+componentDidUpdate : dipanggil segera setelah pembaruan terjadi. Metode ini tidak dipanggil untuk render awal
+componentWillReceiveProps : diperlukan jika Anda ingin memperbarui nilai status dengan nilai props baru, metode ini akan dipanggil setiap kali terjadi perubahan pada nilai props.
+componentWillUnmount : dipanggil segera sebelum komponen dilepas dan dihancurkan.
+
+### What I did not understand
+Pada hari ini saya mengalami error yang cukup aneh padahal saya sudah bersama teman untuk debug malah tidak dapat menghasilkan add item ke cart.
+
 ## Tutorial 7
 
 ### What I have learned today

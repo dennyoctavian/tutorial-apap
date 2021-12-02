@@ -1,0 +1,20 @@
+import React from "react";
+import Button from "../button";
+import classes from "./styles.module.css";
+
+const Item = (props) => {
+    const { id, title, price, description, category, quantity, totalHarga} = props;
+        return (
+        <div className={classes.item}>
+            <h3>{`ID Cart ${id}`}</h3>
+            <p>{`Nama Barang: ${title}`}</p>
+            <p>{`Harga: ${price}`}</p>
+            <p>{`Deskripsi: ${description}`}</p>
+            <p>{`Kategori: ${category}`}</p>
+            <p>{`stok: ${quantity}`}</p>
+            <p>{`harga: ${totalHarga}`}</p>
+        </div>
+        );
+};
+
+export default Item;
