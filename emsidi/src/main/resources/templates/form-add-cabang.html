@@ -1,96 +1,113 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
-	<head>
-		<title>Emsidi</title>
-		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
-		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
-	</head>
+  <head>
+    <title>Emsidi</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+  </head>
 
-	<body>
-		<nav th:replace="fragments/fragment :: navbar('Home')"></nav>
-		<div class="container">
-			<div class="card m-4 p-4">
-				<div class="card-body">
-					<div class="justify-content-center">
-						<h2>Tambah Cabang Emsidi</h2>
-						<br />
-						<form
-							th:action="@{/cabang/add}"
-							th:object="${cabang}"
-							method="POST"
-						>
-							Nama Cabang : <br />
-							<input
-								required
-								class="form-control"
-								type="text"
-								name="namaCabang"
-							/>
-							<br /><br />
+  <body>
+    <nav th:replace="fragments/fragment :: navbar('Home')"></nav>
+    <div class="container">
+      <div class="card m-4 p-4">
+        <div class="card-body">
+          <div class="justify-content-center">
+            <h2>Tambah Cabang Emsidi</h2>
+            <br />
+            <form
+              th:action="@{/cabang/add}"
+              th:object="${cabang}"
+              method="POST"
+            >
+              Nama Cabang : <br />
+              <input
+                required
+                class="form-control"
+                type="text"
+                name="namaCabang"
+                th:value="*{namaCabang}"
+              />
+              <br /><br />
 
-							Alamat : <br />
-							<input
-								required
-								class="form-control"
-								type="text"
-								name="alamatCabang"
-							/>
-							<br /><br />
+              Alamat : <br />
+              <input
+                required
+                class="form-control"
+                type="text"
+                name="alamatCabang"
+                th:value="*{alamatCabang}"
+              />
+              <br /><br />
 
-							Nomor Telepon : <br />
-							<input
-								required
-								class="form-control"
-								type="text"
-								name="noTeleponCabang"
-							/>
-							<br /><br />
+              Nomor Telepon : <br />
+              <input
+                required
+                class="form-control"
+                type="text"
+                name="noTeleponCabang"
+                th:value="*{noTeleponCabang}"
+              />
+              <br /><br />
 
-							Waktu Buka : <br />
-							<input
-								required
-								class="form-control"
-								type="time"
-								name="waktuBuka"
-							/>
-							<br /><br />
+              Waktu Buka : <br />
+              <input
+                required
+                class="form-control"
+                type="time"
+                name="waktuBuka"
+                th:value="*{waktuBuka}"
+              />
+              <br /><br />
 
-							Waktu Tutup : <br />
-							<input
-								required
-								class="form-control"
-								type="time"
-								name="waktuTutup"
-							/>
-							<br /><br />
+              Waktu Tutup : <br />
+              <input
+                required
+                class="form-control"
+                type="time"
+                name="waktuTutup"
+                th:value="*{waktuTutup}"
+              />
+              <br /><br />
 
-							<a
-								th:href="@{/tambah-row/{banyakRow}(banyakRow = 2)}"
-								class="btn btn-primary"
-							>
-								Tambah Row</a
-							>
+              <table class="table">
+                <thead>
+                  <th>Nama Menu</th>
+                  <th>
+                    <button class="btn btn-primary" type="submit" name="addRow">
+                      Tambah Row
+                    </button>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr th:each="menu, iterationStatus : *{listMenu}">
+                    <td>
+                      <select
+                        name="noMenu"
+                        th:field="*{listMenu[__${iterationStatus.index}__].noMenu}"
+                        class="form-control"
+                      >
+                        <div
+                          th:each="menuEx, iterationStatus2 : ${listMenuExisting}"
+                        >
+                          <option
+                            th:value="${menuEx.noMenu}"
+                            th:text="${menuEx.namaMenu}"
+                          ></option>
+                        </div>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
 
-							<h2>Nama Menu</h2>
-
-							<div>
-								<!-- <div th:each="i : ${#numbers.sequence(1,banyakRow)}"> -->
-
-								<input type="dropdown" th:object="${menu}" name="menu" />
-								<a href="/hapus-row/" class="btn btn-danger"> Hapus</a>
-								<br />
-								<br />
-								<!-- </div> -->
-							</div>
-
-							<br />
-							<br />
-							<button class="btn btn-primary" type="submit">Submit</button>
-							<a class="btn btn-primary" href="/">Cancel</a>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+              <br />
+              <br />
+              <button class="btn btn-primary" type="submit">Submit</button>
+              <a class="btn btn-primary" href="/">Cancel</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

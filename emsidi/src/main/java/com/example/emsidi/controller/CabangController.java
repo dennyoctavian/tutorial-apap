@@ -26,9 +26,26 @@ public class CabangController {
 
     @GetMapping("/cabang/add")
     public String addCabangForm(Model model){
-        model.addAttribute("cabang", new CabangModel());
-        model.addAttribute("banyakRow", 3);
-        model.addAttribute("listMenu", menuService.getListMenu());
+        CabangModel cabang = new CabangModel();
+        List<MenuModel> listMenu = menuService.getListMenu();
+        List<MenuModel> listMenuNew = new ArrayList<>();
+
+        model.addAttribute("cabang", cabang);
+        model.addAttribute("listMenuExisting", listMenu);
+        model.addAttribute("listMenuNew", listMenuNew);
+        return "form-add-cabang";
+    }
+
+    @PostMapping(value = "/cabang/add", params = {"addRow"})
+    private String addRowCabangMultiple(@ModelAttribute CabangModel cabang, Model model) {
+        if (cabang.getListMenu() == null || cabang.getListMenu().size() == 0) {
+            cabang.setListMenu(new ArrayList<>());
+        }
+        cabang.getListMenu().add(new MenuModel());
+        List<MenuModel> listMenu = menuService.getListMenu();
+
+        model.addAttribute("cabang", cabang);
+        model.addAttribute("listMenuExisting", listMenu);
         return "form-add-cabang";
     }
 
